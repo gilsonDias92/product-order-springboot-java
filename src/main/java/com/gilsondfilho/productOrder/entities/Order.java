@@ -104,6 +104,15 @@ public class Order implements Serializable {
 		this.payment = payment;
 	}
 	
+	public double getTotal() {
+		double sum = 0;
+		for(OrderItem orderItem : items) {
+			sum = sum + orderItem.getSubTotal();
+		}
+		
+		return sum;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
